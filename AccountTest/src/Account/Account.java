@@ -1,21 +1,26 @@
 package Account;
 
+import java.util.Scanner;
+
 public class Account {
+		
+	private float total;
 	
-	
-	private double balance;
-	
-	public void credit(double money) {
-		balance = money;
+	public void credit(float money) {
+		total += money;
 	}
 	
-	public void debit(double money) {
-		balance = balance - money;
+	public void debit(float money) {
+		total -= money;
+		if (total < 0) {
+			total += money;
+			System.out.print("ban\n");
+		}
 	}
 	
 	
-	public void bal() {
-		System.out.printf("$%f", balance);
+	public float balance() {
+		return total;
 	}
 }
 	
